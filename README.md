@@ -6,7 +6,7 @@
 
 <p align="center">
   Backend do <strong>cadastro de pessoas</strong> da operação portuária<br />
-  Spring Boot · PostgreSQL · MinIO · e-mail de confirmação
+  Spring Boot, PostgreSQL, MinIO e e-mail de confirmação
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@
 - API local: [http://localhost:8080](http://localhost:8080)
 - Pessoas: [http://localhost:8080/api/people](http://localhost:8080/api/people)
 - CEP: [http://localhost:8080/api/cep/{cep}](http://localhost:8080/api/cep/01001000)
-- Frontend (pasta irmã): `../frontend` — Next.js 16 + HeroUI v3 + Bun
+- Frontend (pasta irmã): `../frontend`. Next.js 16, HeroUI v3 e Bun
 
 ---
 
@@ -52,7 +52,7 @@
 - **Foto:** upload JPG/PNG/WEBP (até 8 MB) no MinIO; `GET` com `Cache-Control: no-store`.
 - **Anexos:** RG, documento de CPF e comprovante de residência (`kind`: `rg`, `cpfDoc`, `residence`).
 - **E-mail de confirmação:** envio **assíncrono** após o save; o cadastro não espera SMTP. Sem usuário de e-mail configurado, o envio é ignorado.
-- **Anti-enumeração:** falha de SMTP é engolida — a API não revela se a caixa existe.
+- **Anti-enumeração:** falha de SMTP é engolida. A API não revela se a caixa existe.
 - **Reenvio:** `POST /api/people/{id}/confirm-email` gera token se faltar e dispara de novo.
 - **Ativação:** o clique no link `GET /api/people/confirm/{token}` confirma o e-mail e ativa o cadastro.
 - **CEP:** ViaCEP primeiro; se falhar, República Virtual.
@@ -64,7 +64,7 @@
 
 - **Spring Boot 4.1.2:** Web MVC, Validation, Security (`permitAll` neste desafio), Mail, Data JPA.
 - **Java 21:** records, switch, text blocks, virtual-thread-ready.
-- **Maven Wrapper:** `./mvnw` — sem instalar Maven na máquina.
+- **Maven Wrapper:** `./mvnw`, sem instalar Maven na máquina.
 - **PostgreSQL:** persistência (`localhost:9867`, database `cadus`).
 - **MinIO + AWS SDK S3 2.33.9:** arquivos em bucket `cadus`, path-style.
 - **ViaCEP + República Virtual:** consulta de endereço.
@@ -229,4 +229,4 @@ Rode o Maven **na pasta `backend`**, senão o `.env` não é achado.
 
 Dúvidas: [danielmartinsjob@gmail.com](mailto:danielmartinsjob@gmail.com)
 
-**Cadus** — cadastro de pessoas da gestão portuária · desafio Evereste
+**Cadus:** cadastro de pessoas da gestão portuária. Desafio Evereste.
