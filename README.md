@@ -32,7 +32,7 @@
     <img src="https://img.shields.io/badge/API_local-0B2340?style=for-the-badge" alt="API local" />
   </a>
   &nbsp;
-  <a href="../frontend">
+  <a href="https://github.com/dvizioon/VIZIOON-CADUS-FRONTEND">
     <img src="https://img.shields.io/badge/Frontend_Next.js-0B4692?style=for-the-badge" alt="Frontend" />
   </a>
 </p>
@@ -40,7 +40,7 @@
 - API local: [http://localhost:8080](http://localhost:8080)
 - Pessoas: [http://localhost:8080/api/people](http://localhost:8080/api/people)
 - CEP: [http://localhost:8080/api/cep/{cep}](http://localhost:8080/api/cep/01001000)
-- Frontend (pasta irmã): `../frontend`. Next.js 16, HeroUI v3 e Bun
+- Frontend: [github.com/dvizioon/VIZIOON-CADUS-FRONTEND](https://github.com/dvizioon/VIZIOON-CADUS-FRONTEND)
 
 ---
 
@@ -181,10 +181,9 @@ backend/
    ./mvnw test
    ```
 
-5. **Frontend** (outra pasta):
+5. **Frontend:** [VIZIOON-CADUS-FRONTEND](https://github.com/dvizioon/VIZIOON-CADUS-FRONTEND)
 
    ```bash
-   cd ../frontend
    bun install
    bun run dev
    ```
