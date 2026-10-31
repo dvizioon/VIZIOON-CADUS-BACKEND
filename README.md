@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/⚓-CADUS-0B2340?style=for-the-badge" alt="Cadus" />
+  <img src="./docs/ancora.svg" alt="Âncora Cadus" width="180" />
 </p>
 
 <h1 align="center">Cadus API</h1>
@@ -70,15 +70,6 @@
 - **ViaCEP + República Virtual:** consulta de endereço.
 - **Lombok:** getters/setters nas entidades.
 - **JUnit 5:** CPF, CEP, mapper, mail, properties sem senha commitada.
-
-> [!IMPORTANT]
-> Copie `.env.example` → `.env` e preencha MinIO e SMTP. O `.env` está no `.gitignore`.
-
-> [!NOTE]
-> O save **não bloqueia** no e-mail. `MAIL_USERNAME` vazio = API sobe e o e-mail simplesmente não sai.
-
-> [!CAUTION]
-> Nunca commite senha de app do Gmail nem access/secret do MinIO. Se já foi para o GitHub, **troque as chaves** — o histórico antigo continua com o valor.
 
 ## Plataformas
 
