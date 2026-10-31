@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 class ApplicationPropertiesSecretsTest {
 
   @Test
-  void secretsArePlaceholders() throws Exception {
+  void exampleHasNoMailOrMinioSecrets() throws Exception {
     Properties props = new Properties();
-    try (InputStream in = getClass().getResourceAsStream("/application.properties")) {
+    try (InputStream in = getClass().getResourceAsStream("/application-example.properties")) {
       assertNotNull(in);
       props.load(in);
     }
@@ -25,7 +25,7 @@ class ApplicationPropertiesSecretsTest {
           "app.minio.secret-key"
         }) {
       String value = props.getProperty(key);
-      assertTrue(value != null && value.startsWith("${"), key);
+      assertTrue(value == null || value.isBlank(), key);
     }
   }
 }

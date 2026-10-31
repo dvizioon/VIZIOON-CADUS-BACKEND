@@ -58,7 +58,6 @@
 - **CEP:** ViaCEP primeiro; se falhar, República Virtual.
 - **Validação:** CPF (dígitos verificadores), CEP com 8 dígitos, telefone 10/11, cargo da lista, datas do contrato.
 - **Seed:** se a tabela estiver vazia, grava 3 pessoas de demonstração.
-- **Segredos fora do Git:** `application.properties` só tem placeholders; valores reais no `.env`.
 
 ## Tecnologias utilizadas
 
@@ -133,10 +132,9 @@ backend/
 │       └── cep/                   # lookup de endereço
 │
 ├── src/main/resources/
-│   └── application.properties     # placeholders ${ENV:default}
-├── src/test/java/                 # JUnit
-├── .env.example                   # modelo sem segredo
-├── .env                           # local, gitignored
+│   ├── application.properties
+│   └── application-example.properties
+├── src/test/java/                      # JUnit
 ├── mvnw / mvnw.cmd
 ├── pom.xml
 └── README.md
@@ -162,10 +160,10 @@ backend/
 2. **Ambiente local:**
 
    ```bash
-   cp .env.example .env
+   cp src/main/resources/application-example.properties src/main/resources/application.properties
    ```
 
-   Preencha `MINIO_ACCESS_KEY`, `MINIO_SECRET_KEY` e, se for usar e-mail, `MAIL_USERNAME` / `MAIL_PASSWORD` / `MAIL_FROM`.
+   Preencha MinIO e, se for usar e-mail, `spring.mail.username`, `spring.mail.password` e `app.mail.from`.
 
 3. **Rode:**
 
@@ -188,32 +186,24 @@ backend/
    bun run dev
    ```
 
-## Variáveis de ambiente (`.env`)
+## Configuração (`application.properties`)
 
-| Variável | Padrão | Descrição |
-|----------|--------|-----------|
-| `DB_URL` | `jdbc:postgresql://localhost:9867/cadus` | JDBC do Postgres |
-| `DB_USER` | `postgres` | Usuário |
-| `DB_PASSWORD` | `postgres` | Senha |
-| `APP_PUBLIC_URL` | `http://localhost:8080` | Base dos links de foto, anexo e confirmação |
-| `MAIL_HOST` | `smtp.gmail.com` | SMTP |
-| `MAIL_PORT` | `587` | Porta STARTTLS |
-| `MAIL_USERNAME` | *(vazio)* | Conta SMTP; vazio = não envia |
-| `MAIL_PASSWORD` | *(vazio)* | Senha de app |
-| `MAIL_FROM` | *(vazio)* | Remetente (`Cadus <email>`) |
-| `MINIO_ENDPOINT` | `http://localhost:9000` | S3/MinIO |
-| `MINIO_ACCESS_KEY` | *(vazio)* | Access key |
-| `MINIO_SECRET_KEY` | *(vazio)* | Secret key |
-| `MINIO_BUCKET` | `cadus` | Bucket |
-| `MINIO_REGION` | `us-east-1` | Região do SDK |
-
-O Spring importa o arquivo com:
-
-```properties
-spring.config.import=optional:file:.env[.properties]
-```
-
-Rode o Maven **na pasta `backend`**, senão o `.env` não é achado.
+| Chave | Padrão | Descrição |
+|-------|--------|-----------|
+| `spring.datasource.url` | `jdbc:postgresql://localhost:9867/cadus` | JDBC do Postgres |
+| `spring.datasource.username` | `postgres` | Usuário |
+| `spring.datasource.password` | `postgres` | Senha |
+| `app.public-url` | `http://localhost:8080` | Base dos links de foto, anexo e confirmação |
+| `spring.mail.host` | `smtp.gmail.com` | SMTP |
+| `spring.mail.port` | `587` | Porta STARTTLS |
+| `spring.mail.username` | *(vazio)* | Conta SMTP; vazio = não envia |
+| `spring.mail.password` | *(vazio)* | Senha de app |
+| `app.mail.from` | *(vazio)* | Remetente (`Cadus <email>`) |
+| `app.minio.endpoint` | `http://localhost:9000` | S3/MinIO |
+| `app.minio.access-key` | *(vazio)* | Access key |
+| `app.minio.secret-key` | *(vazio)* | Secret key |
+| `app.minio.bucket` | `cadus` | Bucket |
+| `app.minio.region` | `us-east-1` | Região do SDK |
 
 ## Scripts
 
