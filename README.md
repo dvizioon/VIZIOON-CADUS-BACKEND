@@ -94,15 +94,15 @@
 
 ```mermaid
 graph TD
-    A[POST /api/people] --> B[Valida CPF, cargo, CEP, datas]
-    B --> C[Grava pessoa inativa]
-    C --> D[Responde 201 na hora]
-    D --> E[@Async envia e-mail]
-    E --> F{SMTP configurado?}
-    F -->|Não| G[Não envia]
-    F -->|Sim| H[Link /api/people/confirm/token]
-    H --> I[GET do link]
-    I --> J[emailConfirmed + active]
+    A["POST /api/people"] --> B["Valida CPF, cargo, CEP, datas"]
+    B --> C["Grava pessoa inativa"]
+    C --> D["Responde 201 na hora"]
+    D --> E["Envio async de e-mail"]
+    E --> F{"SMTP configurado?"}
+    F -->|Nao| G["Nao envia"]
+    F -->|Sim| H["Link de confirmacao"]
+    H --> I["GET do link"]
+    I --> J["emailConfirmed e active"]
 ```
 
 ## API
